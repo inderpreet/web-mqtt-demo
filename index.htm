@@ -7,7 +7,25 @@
         
 </head>
 <body>
-        
+        <header><h2>MQTT from a web browser - Test Page</h2></header>
+        <main>
+                <div>
+                        <h2>Incoming Messages</h2>
+                        <div id="mqtt_text">
+                                Messages received over mqtt.
+                        </div>
+                </div>
+                <div>
+                        <h2>Send Messages</h2>
+                        <div id="msg-box">
+                                <form>
+                                        <label for="fname">message</label><br>
+                                        <input type="text" name="fname" id="fname">
+                                </form>
+                                <button onclick="onSendButton()">Send</button>
+                        </div>
+                </div>
+        </main>        
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
 <script src="./js/script.js"></script>

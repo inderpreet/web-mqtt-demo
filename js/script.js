@@ -7,7 +7,7 @@ var port = 80
 onConnect = () => {
         console.log("Connected");
         mqtt.subscribe("ipv1-topic");
-        mess = new Paho.MQTT.Message("Test Message")
+        mess = new Paho.MQTT.Message("(re)Connected")
         mess.destinationName = "ipv1-topic";
         mqtt.send(mess);
 }
@@ -32,6 +32,14 @@ onConnectionLost = (rO) => {
 
 onMessage = (mess) =>{
         console.log("received: " + mess.payloadString)
+        document.getElementById("mqtt_text").innerHTML = mess.payloadString;
+}
+
+onSendButton = () => {
+        var m = document.getElementById("fname").value;
+        mess = new Paho.MQTT.Message(m)
+        mess.destinationName = "ipv1-topic";
+        mqtt.send(mess);
 }
 
 connect();
